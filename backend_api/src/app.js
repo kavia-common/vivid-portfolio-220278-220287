@@ -11,7 +11,11 @@ dotenv.config();
 // Initialize express app
 const app = express();
 
-// CORS
+/**
+ * CORS configuration:
+ * - FRONTEND_ORIGIN must be set in .env (e.g., http://localhost:3000) to allow browser access.
+ * - Falls back to '*' if not provided (credentials disabled in that case).
+ */
 const allowedOrigin = process.env.FRONTEND_ORIGIN || '*';
 app.use(cors({
   origin: allowedOrigin,
